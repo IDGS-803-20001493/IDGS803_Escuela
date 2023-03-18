@@ -1,0 +1,57 @@
+{% extends "layout.html"%}
+
+{% block content%}
+
+{%from "_macros.html" import render_input%}
+
+
+<table style="border: 1px solid black;">
+    <thead style="background-color: cornflowerblue;">
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Fecha de Creacion</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for resultado in resultado %}
+        <tr>
+            <td>{{ resultado[0] }}</td>
+            <td>{{ resultado[1] }}</td>
+            <td>{{ resultado[2] }}</td>
+            <td>{{ resultado[3] }}</td>
+            <td>{{ resultado[4] }}</td>
+            <td>
+            <a href="eliminarMaestro?ID={{resultado[0]}}"><i class="icon-remove icon-white"></i> Eliminar</a>
+            <a href="cargarDatos2?ID={{resultado[0]}}&Nombre={{resultado[1]}}&Apellido={{resultado[2]}}&email={{resultado[3]}}" ><i class="icon-remove icon-white"></i> Modificar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<br>
+
+<form action="/consultaMaestros" id="form1" method="POST">
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+    <input type="submit"  class="btn btn-success"  name="alumnos" value="Recargar"/>
+  </form>
+
+<hr>
+
+<form action="/insertarMaestro" id="form1" method="POST">
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+
+    {{render_input('ID', 'ID', type="text",  value=ID)}}
+    {{render_input('Nombre', 'Nombre', type="text",  value=Nombre)}}
+    {{render_input('Apellido', 'Apellido', type="text",  value=Apellido)}}
+    {{render_input('email', 'email', type="text",  value=email)}}
+
+    <input type="submit"  class="btn btn-success"  name="alumnos" value="Guardar"/>
+    
+  </form>
+
+
+{%endblock%}

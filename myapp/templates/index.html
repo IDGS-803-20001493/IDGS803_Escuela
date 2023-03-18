@@ -1,0 +1,29 @@
+{% extends "layout.html" %} 
+ 
+{% block content%}
+
+<center>
+<div class="card">
+  <div class="card-header">
+    <H1>Bienvenido a Administracion Escuela</H1>
+  </div>
+  <div class="card-body">
+    <H2>Selecciona una opcion:</H2>
+  
+
+  <form form name="sent" action="/consultaAlumnos" method="POST">
+    <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+    
+    <input type="submit" class="btn btn-success" value="Administracion de Alumnos"/>
+    </form>
+
+    <form form name="sent" action="/consultaMaestros" method="POST">
+      <input type="hidden" name="csrf_token" value="{{csrf_token()}}"/>
+      <input type="submit" class="btn btn-primary" value="Administracion de Maestros"/>
+    </form>
+  </div>
+</div>
+
+</center>
+    
+{% endblock %}

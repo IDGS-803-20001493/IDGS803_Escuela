@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/booststrap/bootstrap/css/bootstrap.min.css">
+    
+
+    <style>
+        body{
+            padding-top: 60px;
+            padding-left: 20px;
+        }
+
+            .tr-head{background: cyan;
+            }
+    </style>
+    
+    <link rel="stylesheet" href="../static/booststrap/bootstrap/css/bootstrap-responsive.min.css">
+</head>
+<body>
+
+    <div class="navbar navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="">
+                UTL-IDGS
+            </a>
+            <ul class="nav">
+            <li class="active">
+                <a href="">
+                    <i class="icon-home icon-white">
+                       
+                    </i> inicio
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="icon-user icon-white">
+                        
+                    </i>usuarios
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="icon-user icon-white">
+                        
+                    </i>alumnos
+                </a>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </div>
+
+    <div class="container">
+
+    </div>
+
+    {%with messages= get_flashed_messages()%}
+    {%if messages%}
+
+    {%for message in messages%}
+    <div class="alert alert-success"> {{message}}</div>
+    {%endfor%}
+
+    {%endif%}
+    {%endwith%}
+
+    {% block content%}
+    
+    {% endblock %}
+    
+</body>
+</html>
